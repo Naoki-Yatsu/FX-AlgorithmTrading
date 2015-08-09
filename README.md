@@ -7,7 +7,7 @@ FX algorithm trading system with Java/kdb.
 - Java 8 
 - kdb 3.0+
 
-For more details please refer to the [documentation](doc/readme.md)
+For more details please refer to the [documentation](doc/doc_main.md)
 
 ## Overall Design
 ![Design](doc/design.png "Design")
