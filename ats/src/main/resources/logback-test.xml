@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+
+    <property name="VAR_BASE" value="." />
+    <property name="LOG_HOME" value="${VAR_BASE}/logs" />
+    <property name="LOG_HISTORTY" value="${VAR_BASE}/logs/history" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Error log for STDOUT -->
+    <appender name="ERROR_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>error</level>
+        </filter>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Error log -->
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>error</level>
+        </filter>
+        <append>true</append>
+        <file>${LOG_HOME}/error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/error.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root log -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/root.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/root.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_CORE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/core.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/core.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MARKET_CONNECTION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/market_connection.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/market_connection.log.%d{yyyy-MM-dd}.zip
+            </fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MARKET_ORDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/market_order.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/market_order.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MARKET_TRANSPORT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/market_transport.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/market_transport.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_INDICATOR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/indicator.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/indicator.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MODEL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/model.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/model.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MODEL_NRM" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/model_noise_range.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/model_noise_range.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MODEL_INDICATORTRADE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/model_indicator_trade.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/model_indicator_trade.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_MODEL_ALGO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/model_algo.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/model_noise_range.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_POSITION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/position.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/position.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_INFORMATION" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/information.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/information.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE_DB" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append>
+        <file>${LOG_HOME}/database.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_HISTORTY}/database.log.%d{yyyy-MM-dd}.zip</fileNamePattern>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="ERROR" />
+    </root>
+
+    <logger name="ny2.ats.core" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_CORE" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.market.connection" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MARKET_CONNECTION" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.market.order" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MARKET_ORDER" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.market.transport" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MARKET_TRANSPORT" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.model" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MODEL" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="NoiseRangeModel" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MODEL_NRM" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="IndicatorTradeModel" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MODEL_INDICATORTRADE" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ModelAlgo" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_MODEL_ALGO" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.position" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_POSITION" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.information" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_INFORMATION" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.indicator" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_INDICATOR" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="ny2.ats.database" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_DB" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="org.springframework.jdbc" level="DEBUG" additivity="false">
+        <appender-ref ref="FILE_DB" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="quickfix" level="INFO" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+    <logger name="org.apache.mina" level="INFO" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="ERROR" />
+        <appender-ref ref="ERROR_STDOUT" />
+    </logger>
+
+</configuration>
+
